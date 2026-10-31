@@ -1,0 +1,1 @@
+Historical one-off edits, retained for provenance. Do not rerun against the finished files: their changes are already incorporated in build_guide.py. Original workspace paths are intentionally preserved in these historical scripts.

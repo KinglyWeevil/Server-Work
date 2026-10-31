@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>Ledgerbook — guest guide · design draft</title>
+<style>
+:root{color-scheme:light dark;--paper:#f7f4eb;--ink:#262e29;--muted:#535e55;--accent:#315b45;--line:#cbcfc0;--panel:#eeeee3}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}main{max-width:760px;margin:auto;padding:28px 22px 64px}a{color:var(--accent);text-underline-offset:4px;overflow-wrap:anywhere}h1,h2,h3,p{margin:0 0 16px}h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:normal;line-height:1.15}h1{font-size:clamp(42px,9vw,68px);letter-spacing:-2px}h2{font-size:34px}h3{font-size:18px;margin-top:24px}header{border-top:4px solid var(--accent);padding:20px 0 28px}.eyebrow{font-size:12px;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:var(--accent)}.subtitle{font-family:Georgia,serif;font-size:25px}.draft{border:1px dashed var(--muted);padding:12px 16px;font-size:14px}.meta{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding-bottom:12px;font-size:13px;color:var(--muted)}nav{margin:24px 0 40px;border-top:1px solid var(--line)}nav a{display:flex;align-items:center;gap:16px;min-height:52px;padding:12px 4px;border-bottom:1px solid var(--line);text-decoration:none}nav a:hover,nav a:focus-visible{background:var(--panel)}.num{font-size:12px;color:var(--muted);min-width:24px}section{scroll-margin-top:20px;margin:36px 0;padding-top:24px;border-top:1px solid var(--line)}ol{padding-left:26px}li{padding-left:5px;margin:10px 0}.callout{background:var(--panel);border-left:3px solid var(--accent);padding:18px 20px;margin:24px 0}.callout h3{margin-top:0}.callout p:last-child{margin-bottom:0}.button{display:inline-flex;align-items:center;min-height:48px;border:1px solid var(--accent);padding:10px 18px;text-decoration:none;font-weight:600;margin:0 0 8px}.address{font-size:14px;color:var(--muted)}.note{font-size:14px;color:var(--muted)}.service-heading{display:flex;align-items:baseline;gap:12px}.icon{color:var(--accent);font-size:25px}details{border-top:1px solid var(--line);margin-top:20px;padding-top:10px}summary{cursor:pointer;min-height:48px;padding:10px 0;font-weight:650}footer{border-top:2px solid var(--accent);padding-top:16px;color:var(--muted);font-size:13px}a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+@media(prefers-color-scheme:dark){:root{--paper:#19221d;--ink:#f0eee4;--muted:#b7c3b7;--accent:#a8cfad;--line:#465449;--panel:#263329}}
+@media print{@page{size:letter;margin:0.7in}:root{color-scheme:light;--paper:#fff;--ink:#202520;--muted:#485048;--accent:#254a35;--line:#bfc6bc;--panel:#f3f4ef}body{font-size:11pt}main{max-width:none;padding:0}nav,.button{display:none}.svc{break-before:page}h2,h3,summary{break-after:avoid}.callout{break-inside:avoid}a{color:inherit}details::details-content{display:block!important;content-visibility:visible!important}details> :not(summary){display:block!important}summary{list-style:none}summary::marker{content:""}h1{font-size:44pt}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="eyebrow">A guide for family &amp; friends</p>
+<h1>Ledgerbook</h1>
+<p class="subtitle">A few shared things.<br>A little help finding your way.</p>
+<div class="meta"><span>Guest guide</span><span>Design draft · 01</span></div>
+</header>
+<p class="draft"><strong>For Michael’s review.</strong> This sample shows the proposed design and writing style. It includes sign-in help and one service; the full guide will follow after feedback.</p>
+<nav aria-label="In this draft">
+<a href="#welcome"><span class="num" aria-hidden="true">01</span>Welcome</a>
+<a href="#sign-in"><span class="num" aria-hidden="true">02</span>Signing in</a>
+<a href="#home" data-service="home"><span class="num" aria-hidden="true">03</span>Your home page</a>
+</nav>
+<section id="welcome">
+<p class="eyebrow">Welcome</p>
+<h2>Make yourself at home.</h2>
+<p>Ledgerbook is Michael’s home server. It shares a few things with family and friends he knows.</p>
+<h3>Which services do I have?</h3>
+<p>Michael gives you access to each service separately. If a section in this guide doesn’t work for you, ask him about access.</p>
+</section>
+<section id="sign-in">
+<p class="eyebrow">Start here</p>
+<h2>Your email gets you in.</h2>
+<p>Use these steps when a Ledgerbook web service shows a sign-in page. Each service may ask you to sign in separately the first time.</p>
+<ol>
+<li>Open the service’s web address.</li>
+<li>Enter the email address Michael registered for you.</li>
+<li>Check your email for a one-time code.</li>
+<li>Type the code into the sign-in page within a few minutes.</li>
+</ol>
+<p>You’ll stay signed in for about a day on that device. After that, you’ll get a new code.</p>
+<aside class="callout" aria-label="Sign-in tips">
+<h3>Keep your place.</h3>
+<p>Open the link in your regular browser, such as Safari, Chrome or Firefox. Browsers inside Messages, Discord or Facebook can lose the code page.</p>
+<p>Keep the sign-in tab open while you check your email. Then return to <strong>that same tab</strong> to enter the code.</p>
+</aside>
+<h3>No code, or can’t get in?</h3>
+<p>Check spam, wait a minute, then try again. Codes expire.</p>
+<p>Sign-in works only inside the US. If your VPN uses another country, choose a US location or turn the VPN off.</p>
+</section>
+<section class="svc" id="home" data-service="home" data-summary="A starting page with tiles for your services.">
+<p class="eyebrow">Your services · 01</p>
+<div class="service-heading"><span class="icon" aria-hidden="true">⌂</span><h2>Your home page</h2></div>
+<p>A starting page with tiles for each service, like a set of bookmarks.</p>
+<p class="note">Ask Michael for access.</p>
+<h3>Address</h3>
+<a class="button" href="https://home.ledgerbook.vip">Open your Ledgerbook home page ↗</a>
+<p class="address">https://home.ledgerbook.vip<br>Also: https://ledgerbook.vip</p>
+<h3>Set it up · first time</h3>
+<ol><li>Open your Ledgerbook home page.</li><li>Follow the <a href="#sign-in">email sign-in steps</a>.</li><li>Save the page as a bookmark.</li></ol>
+<h3>How to use it</h3>
+<p><strong>Open a service</strong></p>
+<ol><li>Find the tile for the service you want.</li><li>Tap the tile.</li><li>Sign in again if asked.</li></ol>
+<p><strong>Return to your starting page</strong></p>
+<ol><li>Open your saved Ledgerbook bookmark.</li><li>Choose another service tile.</li></ol>
+<details open>
+<summary>On your phone / on a computer</summary>
+<p><strong>Phone:</strong> Add the home page to your home screen for quick access.</p>
+<p class="note">[[FILL: confirm the supported iPhone and Android “add to home screen” steps]]</p>
+<p><strong>Computer:</strong> Use your browser’s bookmarks to keep the page handy.</p>
+</details>
+<details open>
+<summary>If something’s wrong</summary>
+<ol><li><strong>Stuck signing in?</strong> Return to the <a href="#sign-in">sign-in tips</a>.</li><li><strong>A service won’t open?</strong> Ask Michael whether you have access.</li><li><strong>The page won’t load?</strong> Try again in 10 minutes, then contact Michael.</li></ol>
+<p>Still stuck? Contact Michael: [[FILL: preferred way to contact Michael]].</p>
+</details>
+<h3>Please don’t</h3>
+<p>Don’t share your links or sign-in codes. Access is per person.</p>
+</section>
+<section id="other-services"></section>
+<footer>Ledgerbook · Guest guide · Design draft for review</footer>
+</main>
+</body>
+</html>

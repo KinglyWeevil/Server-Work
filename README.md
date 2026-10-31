@@ -1,13 +1,10 @@
 # Ledgerbook design work
 
-Private working materials for Ledgerbook’s guest brochure and design handoffs.
+Private guest-guide and Argon design handoffs. Start with [HANDOFF.md](HANDOFF.md).
 
-**Start with [HANDOFF.md](HANDOFF.md)** to continue from another application.
-
-- [Current guest brochure](guest-guide/guide.html) — self-contained HTML; open locally in a browser.
-- [Complete Argon design suite](guest-guide/argon-packages/ledgerbook-argon-complete-design-suite.zip) — one upload containing all prompts and reference assets.
+- [Complete design suite](guest-guide/argon-packages/ledgerbook-argon-complete-design-suite.zip): upload to Argon and ask it to read START-HERE.md.
 - [Individual package index](guest-guide/argon-packages/PACKAGE-INDEX.md).
-- [Guest-guide review notes and placeholders](guest-guide/review-notes.md).
-- [Original Argon brochure prompts](guest-guide/gemini-argon-prompts.md).
+- [Actual Ledger inventory, assets and limitations](guest-guide/ledger-evidence/README.md).
+- [Guest guide content draft](guest-guide/guide.html): paper/green styling is obsolete; redesign using the existing leather, brass and vellum branding supplied in the packages.
 
-The website/service design packages are provisional. They use brochure references and explicitly identified starter assets; they have **not** been reconciled with Ledger’s actual container inventory or website assets. Nothing here has been deployed to Ledger.
+Collected 2026-10-30, read-only. Standalone packages carry their own evidence; the complete suite shares evidence at its root. No designs or server changes have been deployed. Missing DNS/device screenshots and guest-flow confirmations remain explicit gaps.

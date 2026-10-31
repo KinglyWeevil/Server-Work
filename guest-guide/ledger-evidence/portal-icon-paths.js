@@ -1,0 +1,25 @@
+/* Extracted existing portal icons, not starter art. */
+const iconPaths={
+  film:'<rect x="4" y="3" width="24" height="26" rx="1"/><path d="M10 3v26M22 3v26M4 9h6M4 16h6M4 23h6M22 9h6M22 16h6M22 23h6"/>',
+  play:'<circle cx="16" cy="16" r="13"/><path d="m13 10 9 6-9 6Z"/>',
+  headphones:'<path d="M5 21v-7a11 11 0 0 1 22 0v7M8 15H5a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h3ZM24 15h3a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2h-3Z"/>',
+  book:'<path d="M16 7C11 3 5 3 2 5v22c5-2 9-1 14 2 5-3 9-4 14-2V5c-3-2-9-2-14 2Zm0 0v22"/>',
+  message:'<path d="M5 4h22a3 3 0 0 1 3 3v15a3 3 0 0 1-3 3H13l-8 5v-5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z"/><path d="M9 14h.1M16 14h.1M23 14h.1" stroke-width="3"/>',
+  game:'<path d="M10 9h12c4 0 7 5 8 14 0 4-3 5-5 2l-4-5H11l-4 5c-2 3-5 2-5-2 1-9 4-14 8-14Z"/><path d="M8 15h6M11 12v6M22 14h.1M25 17h.1"/>',
+  photo:'<rect x="3" y="3" width="26" height="26" rx="1"/><circle cx="11" cy="10" r="3"/><path d="m3 24 9-9 6 6 5-6 6 8"/>',
+  document:'<path d="M7 2h12l7 7v21H7ZM19 2v8h7M11 16h11M11 21h11M11 26h8"/>',
+  edit:'<path d="M15 3H5v26h22V18M12 17 25 4l4 4-13 13-6 2Z"/>',
+  sync:'<path d="M27 12a12 12 0 0 0-21-5L3 11M3 4v7h7M5 20a12 12 0 0 0 21 5l3-4M29 28v-7h-7"/>',
+  screen:'<rect x="2" y="3" width="28" height="20" rx="2"/><path d="M11 29h10M16 23v6"/>',
+  music:'<path d="M12 24V7l16-4v17M12 12l16-4"/><ellipse cx="7" cy="25" rx="5" ry="4"/><ellipse cx="23" cy="21" rx="5" ry="4"/>',
+  search:'<circle cx="13" cy="13" r="9"/><path d="m20 20 10 10"/>',
+  download:'<path d="M16 2v19M9 14l7 7 7-7M4 23v6h24v-6"/>',
+  gear:'<path d="m12 3 1-2h6l1 5 5 2 4-1 3 5-4 4 1 5 2 3-4 5-5-2-5 2-2 3-6-2 1-5-4-4-4-1 1-6 5-1 3-4Z" transform="translate(0 0) scale(.94)"/><circle cx="16" cy="16" r="5"/>',
+  sliders:'<path d="M7 2v7M7 15v15M16 2v17M16 25v5M25 2v11M25 19v11"/><circle cx="7" cy="12" r="3"/><circle cx="16" cy="22" r="3"/><circle cx="25" cy="16" r="3"/>',
+  activity:'<path d="M1 17h7l5-12 6 23 5-11h7"/>',
+  terminal:'<rect x="2" y="4" width="28" height="24" rx="2"/><path d="m7 11 5 5-5 5M17 22h8"/>',
+  archive:'<path d="M3 3h26v6H3ZM5 9v20h22V9M12 16h8"/>',
+  workflow:'<rect x="2" y="2" width="9" height="9"/><rect x="21" y="21" width="9" height="9"/><rect x="2" y="21" width="9" height="9"/><path d="M6 11v10M11 6h14v15"/>',
+  spark:'<path d="m16 2 4 10 10 4-10 4-4 10-4-10L2 16l10-4ZM27 2v6M24 5h6"/>',
+  refresh:'<path d="M28 12a12 12 0 1 0-1 12M28 3v9h-9"/>'
+};

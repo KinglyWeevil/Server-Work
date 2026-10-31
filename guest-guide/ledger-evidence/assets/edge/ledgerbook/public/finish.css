@@ -1,0 +1,58 @@
+/* Material finish derived from the approved B2 reference. Layout and behavior stay in the base files. */
+:root{--ivory:#f0e5d0;--ink:#392819;--brass:#c5a16a}
+body{background:radial-gradient(ellipse at 50% 25%,#332014,transparent 70%),#100d0b}
+.house{isolation:isolate;background-color:#1c130f;background-image:radial-gradient(ellipse 19% 24% at 2% 21%,#f1bb7166 0%,#c67f3c28 42%,transparent 78%),radial-gradient(ellipse 85% 80% at 74% 42%,#0c0907a3 0%,#0c090758 55%,transparent 100%),linear-gradient(110deg,#68412124,transparent 30%,#120b0780),url('assets/leather.png');background-size:auto,auto,auto,630px 630px;background-position:0 0;border:1px solid #b78c4e7a;box-shadow:0 0 0 4px #140e0a,0 0 0 5px #765227a1,0 0 0 8px #100d09,0 22px 80px #0009,inset 0 0 90px #0007}
+.house:before,.house:after{top:0;bottom:0;width:12px;z-index:-1;border-left:1px solid #d0a466;border-right:1px solid #5d3b1d;background-image:linear-gradient(90deg,#2c190d,#bc955a 18%,#463019 28%,#201208 46%,#bc955a80 72%,#160e08),url('assets/brass.png');background-size:auto,220px 220px;box-shadow:1px 0 1px #e3c5916b,5px 0 12px #000a,-2px 0 6px #0008}
+.house:before{left:21px}.house:after{right:21px;transform:scaleX(-1)}
+.architectural-trim{position:absolute;inset:0;z-index:-1;pointer-events:none;overflow:hidden}
+.architectural-trim:before{content:'';position:absolute;inset:1px;border:1px solid #d9a35b24;box-shadow:inset 0 0 0 8px #0905024d,inset 0 0 0 9px #be91513b,inset 0 0 0 16px #0b06035c,inset 0 0 0 17px #c5955024}
+.architectural-trim:after{content:'';position:absolute;width:33%;height:36%;left:-13%;top:7%;background:radial-gradient(ellipse,#ffdb9c56,transparent 64%);filter:blur(9px);mix-blend-mode:screen}
+.trim-left,.trim-right{position:absolute;top:72%;bottom:0;width:50px;background-image:linear-gradient(90deg,#120a06,#795125 12%,#b58a4b 17%,#29170b 21%,#51341a 58%,#1a1009),url('assets/leather.png');background-size:auto,450px 450px;border:1px solid #a97c3d;box-shadow:0 -1px #ddbb7c66,4px 0 15px #000b,inset 0 0 0 4px #1d1009,inset 0 0 0 5px #b58c4d61}
+.trim-left{left:0}.trim-right{right:0;transform:scaleX(-1)}
+.trim-left:before,.trim-right:before{content:'';position:absolute;left:2px;right:-1px;top:-19px;height:22px;clip-path:polygon(0 0,57% 0,100% 55%,100% 100%,0 100%);border-bottom:2px solid #bd955b;background:linear-gradient(168deg,#17100a 16%,#b28a4c 19%,#48301a 23%,#27170b 65%,#b28a4c 69%,#53381d 74%,#201209 82%);box-shadow:0 4px 8px #000b}
+.house-header{border-bottom-color:#c59b5b79;box-shadow:0 1px 0 #100905b3;text-shadow:0 2px 3px #000b;min-height:112px}
+.brand{font-weight:400;letter-spacing:.025em}.brand-mark{width:63px;height:72px;filter:drop-shadow(0 2px 2px #0009)}
+.brand span{border-left-color:#ba905283}.account-link{color:#e4d5bc}
+.login-view{min-height:670px;padding-top:92px;padding-bottom:110px}.login-column{width:min(100%,465px)}
+.login-column h1{font-size:clamp(70px,7.1vw,102px);text-shadow:0 3px 6px #0008;margin-bottom:49px;letter-spacing:-.025em}
+.login-column label{font-weight:400;font-size:22px;text-shadow:0 1px 2px #000}
+.login-column input,.recovery-form input{background-image:linear-gradient(105deg,#f9edd0a8,#ead9b470),url('assets/vellum.png');background-size:auto,470px 470px;background-position:center;border:1px solid #bc945c;border-top-color:#f0cf95;border-bottom-color:#76572e;border-radius:4px;box-shadow:inset 0 1px 5px #4d30193d,inset 0 0 10px #976d2e29,0 0 0 2px #0b0704,0 0 0 3px #b18a4b59,0 5px 15px #0004;color:#302316}
+.brass-button{background-image:linear-gradient(112deg,#5d3b1261,#ffe1a02e 36%,#f3cf8812 61%,#6c471e4f),url('assets/brass.png');background-size:auto,430px 230px;background-position:center;border-top:1px solid #e8c68a;border-right:1px solid #bd9559;border-bottom:1px solid #6d4b23;border-left:1px solid #bd9559;color:#27190b;text-shadow:0 1px 0 #fff0c25c;box-shadow:inset 0 0 0 2px #4e2f162e,inset 0 0 0 3px #f8da9c45,0 2px 3px #0008,0 6px 16px #0004;border-radius:3px}
+.login-helper{color:#d0c0a8;font-size:19px;text-shadow:0 1px 2px #000}.quiet-link{color:#d1aa6f;text-shadow:0 1px 2px #000;border-bottom-color:#a984476b}
+.house-footer{border-top-color:#bd925259;color:#bfa27b;text-shadow:0 1px 2px #000}
+.book-heading h1{text-shadow:0 2px 5px #000b}.book-view{padding-top:40px}.search-label input{background-image:linear-gradient(#100b089c,#120d099c),url('assets/leather.png');background-size:auto,430px 430px;border-color:#b18b527a;box-shadow:inset 0 1px 5px #0008,0 1px #dec4921a;color:#e9d7b7}
+.book-cover{padding:13px 14px 20px;border:1px solid #c29652;border-radius:12px 14px 15px 12px;background-image:linear-gradient(90deg,#7a451d4a,#24110982 12%,#4a271582 47%,#170b06b0 50%,#3b1b0d82 54%,#5a2e144a),url('assets/leather.png');background-size:auto,380px 380px;box-shadow:0 23px 35px #0009,0 5px 10px #000b,0 0 0 2px #130b05,0 0 0 3px #9d6f354f,inset 0 0 0 3px #d1a36438,inset 0 0 0 6px #1c0c0861,inset 0 0 0 7px #ae7d3d69,inset 0 1px 4px #ffe2a162}
+.book-cover:before{content:'';position:absolute;inset:6px 7px 9px;border:1px dashed #b6976573;border-radius:8px;pointer-events:none;z-index:0}
+.book-cover:after{left:18px;right:18px;bottom:5px;height:15px;border-radius:0 0 6px 6px;background:repeating-linear-gradient(0deg,#795c35 0,#795c35 1px,#e4cda1 1px,#c5ad7c 2px,#a88c5c 3px);box-shadow:0 2px 2px #160c07,inset 20px 0 12px #4e301c55,inset -20px 0 12px #4e301c55}
+.book-spread:after{width:62px;background:linear-gradient(90deg,transparent,#8b62372b 17%,#714a2557 36%,#5534179e 47%,#40220dbd 49%,#f1d5a56b 51%,#fff1c72b 55%,#9b6a3229 68%,transparent);border-radius:35% 35% 20% 20% / 3% 3% 4% 4%;box-shadow:0 0 20px #8760390a;z-index:3}
+.paper{position:relative;border:1px solid #af8b4e;min-height:595px;background-color:#eddfc0;background-image:radial-gradient(ellipse at 45% 35%,#fff8dd33 5%,transparent 65%),url('assets/vellum.png');background-size:auto,660px 660px;background-position:center,0 0;color:#352517;padding-top:31px;box-shadow:inset 0 0 2px 1px #80552452,inset 0 0 14px #9f6c2d66,inset 0 0 35px #98682724}
+.paper:before{content:'';position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(180deg,#a6722d30,transparent 25px,transparent calc(100% - 30px),#80532138),linear-gradient(90deg,#9b692d22,transparent 30px,transparent calc(100% - 30px),#9b692d22);mix-blend-mode:multiply;z-index:0}
+.paper>*{position:relative;z-index:1}.left-page{border-radius:8px 25px 13px 6px;background-position:center,23% 0;box-shadow:inset -16px 0 23px #6f451d38,inset 0 0 4px 1px #8b5b2945,inset 0 0 28px #a376393b,0 1px #e8c997}
+.right-page{border-radius:25px 7px 6px 13px;background-position:center,81% 38%;box-shadow:inset 15px 0 25px #8d603422,inset 0 0 4px 1px #8b5b2945,inset 0 0 25px #a3763938,0 1px #e8c997}
+.page-heading{border-bottom-color:#9a753ba8;box-shadow:0 1px #fff7dd59;padding-bottom:2px}.page-heading h2{color:#342414;text-shadow:0 1px #fff4ce90;font-size:32px;letter-spacing:-.015em}.page-caption{color:#725735}
+.service-tile{border:1px solid #9a763b5e;background-image:linear-gradient(115deg,#fff8de16,#b18a4420);box-shadow:inset 0 1px #fff6d75e,inset 0 -1px #94652a14,0 1px #fff3d329;border-radius:2px;padding-top:19px;padding-bottom:19px}
+.service-tile:hover{background:#fff4d84d;box-shadow:inset 0 0 0 1px #97734266,0 2px 6px #71481924}.service-icon{stroke:#49341c;filter:drop-shadow(0 1px #fff3cfbf);stroke-width:1.55}.service-title{color:#332414;text-shadow:0 1px #fff7dc88;font-weight:400}.service-description{color:#6b5131;text-shadow:0 1px #fff7dc55}.pin-button{color:#947d56}.pin-button[aria-pressed=true]{color:#815b27;text-shadow:0 1px #fff5d3,0 -1px #50371333}.page-foot{color:#755b35}.page-foot button{color:#68451c}.empty-state{color:#795f3d}
+.chapter-tabs{top:34px;filter:drop-shadow(3px 5px 4px #0005)}.chapter-tabs [role=tab]{background-image:linear-gradient(90deg,#4e331a52,#e8c99129 19%,#9b743326 78%,#4d311a36),url('assets/brass.png');background-size:auto,220px 330px;border-top-color:#d4b379;border-bottom-color:#60451f;border-right-color:#b99052;color:#30210f;text-shadow:0 1px #ebcc8c7a;box-shadow:inset -3px 0 6px #39210f44,inset 0 1px #ffde9b75,2px 2px 4px #0004}
+.chapter-tabs [role=tab][aria-selected=true]{background-image:linear-gradient(90deg,#9872413b,transparent 30%,#a27a3738),url('assets/vellum.png');background-size:auto,380px 380px;color:#382615;font-weight:400;border-top-color:#edd8ad;border-bottom-color:#9c7840;box-shadow:inset -4px 0 9px #a075394a,0 1px #0005}
+.return-tab{background-image:linear-gradient(90deg,#aa78364a,#ffe0a333,#9768284a),url('assets/brass.png');background-size:auto,300px 300px;color:#38240e;border-top-color:#e7c992;border-right-color:#a98043;border-bottom-color:#5b3b1d;box-shadow:inset 0 1px #ffdf9f6b,2px 3px 5px #0006}
+.book-instruction{color:#c5ae8d;text-shadow:0 1px 2px #000}
+dialog{background-image:linear-gradient(#130c075c,#130c075c),url('assets/leather.png');background-size:auto,500px 500px}
+@media(min-width:1450px){.paper{min-height:635px}}
+@media(max-width:1100px){.house:before{left:10px}.house:after{right:10px}.trim-left,.trim-right{width:25px}.paper{padding-top:25px}.brand-mark{width:56px;height:66px}}
+@media(max-width:760px){.house:before{width:6px;left:9px}.house:after{width:6px;right:9px}.trim-left,.trim-right{display:none}.architectural-trim:before{box-shadow:inset 0 0 0 4px #0905024d,inset 0 0 0 5px #be91513b}.house-header{min-height:90px}.brand-mark{width:41px;height:52px}.brand{gap:11px}.login-view{min-height:610px;padding-top:78px;padding-bottom:100px}.login-column h1{font-size:75px}.paper{min-height:500px;padding-top:25px}.left-page,.right-page{border-radius:7px;box-shadow:inset 0 0 4px #8b5b2980,inset 0 0 20px #a3763945}.book-cover{padding:9px 9px 18px}.book-spread:after{display:none}.chapter-tabs{top:28px}.page-heading h2{font-size:29px}}
+@media(max-width:420px){.brand-mark{width:35px;height:47px}.brand{font-size:20px}.login-column h1{font-size:65px}.service-tile{grid-template-columns:29px minmax(0,1fr);gap:8px}.service-icon{width:28px;height:28px}.service-title{font-size:18px}.service-description{font-size:13px}.page-heading h2{font-size:26px}.page-caption{font-size:10px}}
+
+/* Ledgerbook: three bookmarks per column, with the next layer tucked behind. */
+.book-wrap{margin-right:96px}
+.chapter-tabs{width:96px;isolation:isolate}
+.chapter-tabs [role=tablist]{display:grid;grid-auto-flow:column;grid-template-rows:repeat(3,148px);grid-auto-columns:48px;gap:7px 0;align-items:start}
+.chapter-tabs [role=tab]{position:relative;z-index:2;height:144px;min-height:144px;box-sizing:border-box}
+.chapter-tabs [role=tab]:nth-child(n+4){z-index:1;transform:translate(-8px,53px)}
+.chapter-tabs [role=tab]:focus-visible{outline:3px solid #ead4a5;outline-offset:3px;z-index:3}
+@media(max-width:760px){
+  .book-wrap{margin-right:78px}
+  .chapter-tabs{width:78px}
+  .chapter-tabs [role=tablist]{grid-template-rows:repeat(3,140px);grid-auto-columns:37px}
+  .chapter-tabs [role=tab]{height:136px;min-height:136px}
+  .chapter-tabs [role=tab]:nth-child(n+4){transform:translate(-7px,51px)}
+}

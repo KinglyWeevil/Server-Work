@@ -1,3 +1,4 @@
+from ledger_package_context import NOTICE, evidence_files
 from pathlib import Path
 import re,json,hashlib,zipfile
 root=Path(__file__).resolve().parents[1]; out=root/'argon-packages'
@@ -6,7 +7,7 @@ prompts=re.findall(r'## (\d)\. ([^\n]+)\n\n```text\n(.*?)\n```',source,re.S)
 assert len(prompts)==3
 context='''# Current project context
 
-The included guide.html is the current working baseline. Keep the established Ledgerbook paper-and-ink theme. This is a private guest handbook, primarily read on phones, with an offline self-contained HTML deliverable and US-letter print support.
+The included guide.html is the current working baseline. Use existing Ledgerbook leather, brass and vellum branding from ledger-evidence/. Paper/green styling is obsolete. This is a private guest handbook, primarily read on phones, with an offline self-contained HTML deliverable and US-letter print support.
 
 Latest user decisions supersede older briefs:
 - Direct service discovery to the all-services directory, not to a support request when a guest cannot open something. The home page should show only a guest's enabled tiles.
@@ -32,6 +33,8 @@ shared={
  'references/checks.json':(root/'checks.json').read_bytes(),
  'PROJECT-CONTEXT.md':context.encode(),
 }
+shared.update(evidence_files())
+shared['PROJECT-CONTEXT.md']=(NOTICE+context).encode()
 names=['01-art-direction','02-design-and-icons','03-final-audit']
 for (number,title,prompt),name in zip(prompts,names):
  preface='''First read PROJECT-CONTEXT.md and inspect guide.html and the relevant files in references/. Treat the reference renders as the current baseline to improve, not an approved final design. Write outputs as new files so the baseline remains recoverable. Do not deploy or publish anything.
@@ -42,7 +45,7 @@ for (number,title,prompt),name in zip(prompts,names):
  if number=='3':
   preface+='Audit the latest revised guide supplied in this conversation, if any; otherwise audit guide.html from this ZIP. State which version you actually checked. Do not assume a stage-2 revision exists.\n\n'
  files=dict(shared)
- files['PROMPT.md']=('# Stage '+number+': '+title+'\n\n'+preface+prompt+'\n').encode()
+ files['PROMPT.md']=('# Stage '+number+': '+title+'\n\n'+NOTICE+preface+prompt+'\n').encode()
  files['START-HERE.txt']=('Ledgerbook / Argon / Stage '+number+'\n\nUpload this ZIP and say:\n\nRead PROMPT.md inside the ZIP, then follow it using the included guide.html and reference assets.\n\nAll paths are relative to this ZIP. Each stage is self-contained and includes the same current baseline.\nUse stage 1 first, approve its direction, then use stage 2 and stage 3 in the same conversation to preserve approved revisions.\nIf you start a fresh conversation for a later stage, also provide the approved design or revised HTML from the previous stage.\nA ZIP made now cannot contain outputs that have not been created yet.\n').encode()
  files['MANIFEST.json']=json.dumps({'package':name,'files':[{ 'path':k,'bytes':len(v),'sha256':hashlib.sha256(v).hexdigest()} for k,v in sorted(files.items())]},indent=2).encode()
  path=out/('ledgerbook-argon-'+name+'.zip')

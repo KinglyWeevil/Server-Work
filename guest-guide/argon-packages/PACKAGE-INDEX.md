@@ -15,8 +15,8 @@
 - [Calibre-Web](./ledgerbook-argon-09-calibre-web.zip)
 - [Jellyfin](./ledgerbook-argon-10-jellyfin.zip)
 - [Radarr · admin-only](./ledgerbook-argon-11-radarr-admin.zip)
-- [Private notes · product not yet identified](./ledgerbook-argon-12-private-notes.zip)
+- [Private notes · Obsidian](./ledgerbook-argon-12-private-notes.zip)
 - [Minecraft companion guide · not a game-client theme](./ledgerbook-argon-13-minecraft-companion.zip)
 - [Plex companion · integration limits first](./ledgerbook-argon-14-plex-companion.zip)
 
-Each standalone package has PROMPT.md. Shared assets and website packages should establish the approved visual direction before app-specific refinements. No actual container versions, configs or source were supplied; the prompts require compatibility checks and clearly labeled concepts where integration is unverified.
+Each standalone package has PROMPT.md. Shared assets and website packages should establish the approved visual direction before app-specific refinements. Actual inventory and allowlisted source references are included in ledger-evidence/; the prompts require compatibility checks and clearly labeled concepts where integration is unverified.

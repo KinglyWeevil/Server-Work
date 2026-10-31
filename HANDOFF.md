@@ -1,3 +1,17 @@
+# Current continuation — 2026-10-30
+
+The inventory/asset collection requested below is complete. Michael clarified: **only existing leather, brass and vellum branding matters**. Paper/green styling is an obsolete draft, not a competing approved direction.
+
+Read `guest-guide/ledger-evidence/README.md` for the actual 36-container inventory, source provenance, customization evidence and remaining gaps. The asset manifest records SHA-256 hashes and original paths. All 14 standalone packages include the evidence. The complete suite stores it once at root `ledger-evidence/` to avoid duplicate assets and GitHub's file-size limit. Package prompts override historical paper/green direction. No design was deployed, no accounts/access changed, no secret/config files collected.
+
+The existing guide, phone preview and PDF remain unchanged historical content references. They have **not** been redesigned or revalidated as a leather/brass/vellum guide. Argon should use the real assets to perform that design task. Native-client flows, guest availability, per-device DNS, screenshots and full authenticated theme acceptance remain unverified. Existing source CSS is evidence, not blanket proof of vendor support.
+
+Rebuild with `python3 guest-guide/tools/package_argon.py`, then `python3 guest-guide/tools/package_web_and_services.py`. Collection is an explicit read-only allowlist in `collect_ledger_evidence.py`; review its fields/files before extending it. It requires the clerk's configured rx route and shared stacks mount. Never collect private setup records, backend identities, credentials, whole configs or app data.
+
+The earlier handoff below is preserved for historical contract details; its claims that no inventory/source/assets were available and its paper/green direction are superseded by this update.
+
+---
+
 # Continue here
 
 ## Current state

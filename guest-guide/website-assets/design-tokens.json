@@ -1,32 +1,7 @@
 {
-  "provenance": "Extracted from the current brochure. Starter reference, not a deployed website theme.",
-  "light": {
-    "paper": "#f7f4eb",
-    "ink": "#262e29",
-    "muted": "#535e55",
-    "accent": "#315b45",
-    "line": "#cbcfc0",
-    "panel": "#eeeee3"
-  },
-  "dark": {
-    "paper": "#19221d",
-    "ink": "#f0eee4",
-    "muted": "#b7c3b7",
-    "accent": "#a8cfad",
-    "line": "#465449",
-    "panel": "#263329"
-  },
-  "type": {
-    "display": "Georgia, \"Times New Roman\", serif",
-    "body": "system-ui, -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
-    "bodySize": "17px",
-    "bodyLineHeight": 1.65
-  },
-  "constraints": [
-    "System fonts only",
-    "No remote assets or tracking",
-    "WCAG AA text contrast",
-    "Visible focus and reduced-motion support",
-    "Do not globally inject brochure CSS into third-party apps"
-  ]
+  "provenance": "Ledgerbook Full values from existing source CSS; no new palette approval inferred.",
+  "dark": "#20170f",
+  "brass": "#bc965a",
+  "ivory": "#eee0c4",
+  "direction": "Existing leather, brass and vellum only; see ledger-evidence/assets/edge/THEMING.md"
 }

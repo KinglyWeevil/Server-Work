@@ -1,0 +1,100 @@
+[
+  {
+    "path": "assets/edge/THEMING.md",
+    "source": "/mnt/user/appdata/stacks/edge/THEMING.md",
+    "sha256": "bf617c5f492759928e42f41306c77f7fc05b3325cdc513dcb195967485c2bb6e",
+    "bytes": 1138,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  },
+  {
+    "path": "assets/edge/ledgerbook/public/index.html",
+    "source": "/mnt/user/appdata/stacks/edge/ledgerbook/public/index.html",
+    "sha256": "fed2ab8fc1f5ca2ed568405853c134606111ddbf1ceea4dc96b3ce2943327a7a",
+    "bytes": 3907,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  },
+  {
+    "path": "assets/edge/ledgerbook/public/style.css",
+    "source": "/mnt/user/appdata/stacks/edge/ledgerbook/public/style.css",
+    "sha256": "5886b0591c25e0eee788f2c2548138a0fbc23096b139e3003e27d1189f6ca5b2",
+    "bytes": 12470,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  },
+  {
+    "path": "assets/edge/ledgerbook/public/finish.css",
+    "source": "/mnt/user/appdata/stacks/edge/ledgerbook/public/finish.css",
+    "sha256": "52af3148424fe35fc2e0bc35f04c887f627df10598c2cd4ed194a16f99a3d5b4",
+    "bytes": 11026,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  },
+  {
+    "path": "assets/edge/ledgerbook/public/book-model.js",
+    "source": "/mnt/user/appdata/stacks/edge/ledgerbook/public/book-model.js",
+    "sha256": "5d3f4a2bd99dfdbe4139b945e0b3835f421657d76ea3c285f78d6a5149d55313",
+    "bytes": 1447,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  },
+  {
+    "path": "assets/edge/ledgerbook/public/assets/brass.png",
+    "source": "/mnt/user/appdata/stacks/edge/ledgerbook/public/assets/brass.png",
+    "sha256": "e3c9fa13622158c0c1585aaab0707b051e7fe55dc3d760827e4e1baa880df448",
+    "bytes": 3154409,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  },
+  {
+    "path": "assets/edge/ledgerbook/public/assets/lb-baroque.png",
+    "source": "/mnt/user/appdata/stacks/edge/ledgerbook/public/assets/lb-baroque.png",
+    "sha256": "6fd3142155c25c22c189c1feea4c839f8ffa5fa98eb1af3328856770154a4c97",
+    "bytes": 1007259,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  },
+  {
+    "path": "assets/edge/ledgerbook/public/assets/leather.png",
+    "source": "/mnt/user/appdata/stacks/edge/ledgerbook/public/assets/leather.png",
+    "sha256": "388352f53fce125a9576c3c40e66a5de8f129d3ee3df858d44bc96f18c424758",
+    "bytes": 3562646,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  },
+  {
+    "path": "assets/edge/ledgerbook/public/assets/vellum.png",
+    "source": "/mnt/user/appdata/stacks/edge/ledgerbook/public/assets/vellum.png",
+    "sha256": "0ce866f2c53c997ac9af94e7366a165b0694e79b75cafb0c6eb321e29d31fe17",
+    "bytes": 2602829,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  },
+  {
+    "path": "assets/books/ledgerbook-theme/ledgerbook-full.css",
+    "source": "/mnt/user/appdata/stacks/books/ledgerbook-theme/ledgerbook-full.css",
+    "sha256": "618ca5e4e6a30aca00a7487ed9ab5ebdd4db83d680c6e21b7e7ba687ffa95d78",
+    "bytes": 95411,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  },
+  {
+    "path": "assets/streaming/ledgerbook-theme/jellyfin-full.css",
+    "source": "/mnt/user/appdata/stacks/streaming/ledgerbook-theme/jellyfin-full.css",
+    "sha256": "78db62b21b74ab839bef2c3a3f7e25d24d4cb6b128ff85e2fc8caba73f4c6162",
+    "bytes": 92302,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  },
+  {
+    "path": "assets/media/ledgerbook-theme/radarr/hooks/full.css",
+    "source": "/mnt/user/appdata/stacks/media/ledgerbook-theme/radarr/hooks/full.css",
+    "sha256": "d5dd18051aafba74f6fbbcb569311566c305680350eb69fc6924a338b513a47e",
+    "bytes": 128100,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  },
+  {
+    "path": "assets/notes/ledgerbook-theme/obsidian-zilthai/ledgerbook-full.css",
+    "source": "/mnt/user/appdata/stacks/notes/ledgerbook-theme/obsidian-zilthai/ledgerbook-full.css",
+    "sha256": "cd09c8d8568eb01e03d955660a58ad7d2c6d197b86eb719187da0108315e9d6f",
+    "bytes": 91301,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  },
+  {
+    "path": "assets/minecraft/ledgerbook-theme/bluemap-full.css",
+    "source": "/mnt/user/appdata/stacks/minecraft/ledgerbook-theme/bluemap-full.css",
+    "sha256": "b909743bbe8cb863e604a264d203bbb777af388095ccd9669ba39f5c9f782a4d",
+    "bytes": 91342,
+    "usage": "Private Ledgerbook design reference; no license grant or public redistribution rights inferred"
+  }
+]

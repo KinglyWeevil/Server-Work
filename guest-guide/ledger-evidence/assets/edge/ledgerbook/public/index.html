@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ledgerbook — All yours.</title>
+  <meta name="description" content="Your private home for media and services.">
+  <link rel="icon" href="assets/lb-baroque.png" type="image/png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="finish.css">
+  <script defer src="book-model.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+<div class="house">
+    <div class="architectural-trim" aria-hidden="true"><span class="trim-left"></span><span class="trim-right"></span></div>
+    <header class="house-header">
+      <a class="brand" href="#login" aria-label="Ledgerbook home"><img class="brand-mark" src="assets/lb-baroque.png" alt="Interlocked capital L B"><span>ledgerbook.vip</span></a>
+      <button class="account-link" id="account" type="button" hidden>Michael <span aria-hidden="true">⌄</span></button>
+    </header>
+    <main>
+      <section id="login-view" class="login-view" aria-labelledby="login-title">
+        <div class="login-column">
+          <h1 id="login-title">All yours.</h1>
+          <form id="login-form">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" readonly>
+            <button class="brass-button" type="submit">Continue</button>
+            <p class="login-helper">Signed in. Your services are ready.</p>
+          </form>
+          <button class="quiet-link" id="help" type="button">Account assistance</button>
+        </div>
+      </section>
+      <section id="book-view" class="book-view" aria-labelledby="book-title" hidden>
+        <div class="book-heading"><h1 id="book-title">Prepared for you.</h1><label class="search-label"><span class="search-symbol" aria-hidden="true"></span><span class="sr-only">Search the selected category</span><input id="search" type="search" placeholder="Search this chapter…" autocomplete="off"></label></div>
+        <div class="book-wrap">
+          <div class="book-cover"><div class="book-spread">
+            <section class="paper left-page" id="left-page" aria-labelledby="left-title"><div class="page-heading"><h2 id="left-title">Pinned</h2><span id="left-caption" class="page-caption">Close at hand</span></div><div id="left-services" class="service-grid"></div><div class="page-foot" id="left-foot"></div></section>
+            <section class="paper right-page" id="right-page" aria-labelledby="right-title"><div class="page-heading"><h2 id="right-title">Media</h2><span id="right-caption" class="page-caption"></span></div><div id="right-services" class="service-grid"></div><div class="page-foot" id="right-foot"></div></section>
+          </div></div>
+          <nav class="chapter-tabs" aria-label="Book chapters">
+            <button id="return-tab" class="return-tab" type="button" aria-label="Return to pinned services and the first category page" hidden><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M12 15H25C37 15 37 32 24 32H19M12 15L20 7M12 15L20 23" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="sr-only">Back to pinned</span></button>
+            <div id="category-tabs" role="tablist" aria-label="Service categories" aria-orientation="vertical"></div>
+          </nav>
+        </div>
+        <p class="book-instruction" id="book-instruction"></p>
+        <p class="sr-only" aria-live="polite" id="book-status"></p>
+      </section>
+    </main>
+    <footer class="house-footer"><span class="footer-rule"></span><span>All yours.</span><span class="footer-rule"></span></footer>
+  </div>
+  <dialog id="dialog"><div class="dialog-inner"><button type="button" class="dialog-close" aria-label="Close dialog">×</button><div id="dialog-body"></div></div></dialog>
+</body>
+</html>

@@ -1,0 +1,222 @@
+{
+  "observed": "2026-10-30",
+  "source": "Ledger docker ps -a; allowlisted fields only",
+  "containers": [
+    {
+      "container": "ledgerbook-portal",
+      "image": "node",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "n8n",
+      "image": "n8nio/n8n:2.45.6",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "uptime-docker-proxy",
+      "image": "tecnativa/docker-socket-proxy:v0.5.0",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "uptime-kuma",
+      "image": "louislam/uptime-kuma:2.5.8-slim-rootless",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "uptime-heartbeat",
+      "image": "curlimages/curl:8.23.0",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "bazarr",
+      "image": "lscr.io/linuxserver/bazarr:v1.6.2-ls367",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "radarr",
+      "image": "lscr.io/linuxserver/radarr:6.4.4.10685-ls319",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "sonarr",
+      "image": "lscr.io/linuxserver/sonarr:4.0.20.3014-ls327",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "upsnap",
+      "image": "ghcr.io/seriousm4x/upsnap:5.7.2",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "workbench",
+      "image": "local/workbench:4.141.0",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "obsidian",
+      "image": "lscr.io/linuxserver/obsidian:v1.14.4-ls149",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "syncthing",
+      "image": "lscr.io/linuxserver/syncthing:v2.1.6-ls232",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "clerk-portal",
+      "image": "caddy:2.11.6-alpine",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "minecraft",
+      "image": "itzg/minecraft-server:2026.10.0-java25",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "minecraft-ddns",
+      "image": "favonia/cloudflare-ddns:1.17.1",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "minecraft-backup",
+      "image": "itzg/mc-backup:2026.10.1",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "tdarr",
+      "image": "ghcr.io/haveagitgat/tdarr:3.01.00",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "lazylibrarian",
+      "image": "lscr.io/linuxserver/lazylibrarian:369cc854-ls366",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "chaptarr",
+      "image": "chaptarr/chaptarr:0.9.965",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "audiobookshelf",
+      "image": "ghcr.io/advplyr/audiobookshelf:2.37.1",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "sillytavern",
+      "image": "ghcr.io/sillytavern/sillytavern:1.19.0",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "obsidian-zilthai",
+      "image": "lscr.io/linuxserver/obsidian:v1.14.4-ls149",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "calibre-web",
+      "image": "lscr.io/linuxserver/calibre-web:0.6.27-ls406",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "prowlarr",
+      "image": "lscr.io/linuxserver/prowlarr:2.6.5.5623-ls163",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "lidarr",
+      "image": "lscr.io/linuxserver/lidarr:3.1.0.4875-ls43",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "calibre",
+      "image": "lscr.io/linuxserver/calibre:v9.16.0-ls427",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "jellyseerr",
+      "image": "ghcr.io/seerr-team/seerr:v3.5.0",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "homepage",
+      "image": "ghcr.io/gethomepage/homepage:v2.6.0",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "guacamole",
+      "image": "jwetzell/guacamole:1.6.0-20260804",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "cloudflared",
+      "image": "cloudflare/cloudflared:2026.10.1",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "plex",
+      "image": "lscr.io/linuxserver/plex:1.43.4",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "kavita",
+      "image": "lscr.io/linuxserver/kavita:v0.9.1.4-ls128",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "jellyfin",
+      "image": "lscr.io/linuxserver/jellyfin:12.2ubu2604-ls54",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "flaresolverr",
+      "image": "ghcr.io/flaresolverr/flaresolverr:v3.5.2",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "qbittorrent",
+      "image": "lscr.io/linuxserver/qbittorrent:5.2.4_v2.0.15-ls479",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    },
+    {
+      "container": "gluetun",
+      "image": "qmcgaw/gluetun:v3.41.3",
+      "state": "running",
+      "version_evidence": "Configured image reference; not an in-app version measurement"
+    }
+  ]
+}

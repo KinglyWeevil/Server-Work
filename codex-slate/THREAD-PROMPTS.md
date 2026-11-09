@@ -25,5 +25,8 @@ Work on the project in `Ledger\projects\Ledger Pocket`. Read its README.md and C
 ### 6. PRISM Visuals
 Work on the project in `Ledger\projects\PRISM Visuals` (vault project Projects/PRISM). Read its README.md and CODEX-PROMPT.md first. The W05 fixes are done. This is a read-only recommendations report on PRISM rendering its own independent scenes (Chrysalis and Thornstorm first). Your job: check Codex's report against the vault decisions and the shareable-licenses rule, then give me its open questions as a pick form.
 
+### 7. Media Library Audit
+Work on the project in `Ledger\projects\Media Library Audit`. Read its README.md and CODEX-PROMPT.md first. Codex builds a GET-only audit script and writes a vault report. Your job: help me put the API keys into its local config without them landing in chat or git, check the report's top 10 actions against the apps, and walk me through any I want to do.
+
 ### Parked (don't start yet)
 `Ledger\projects\Parked Ideas\` holds Guest Guide (soon), Immich, SillyTavern Assistant, HA Automations and Minecraft Winter Event, each with a README and a draft prompt. To start one later: "Work on `Ledger\projects\Parked Ideas\<name>`. Read its README, check that its unblock conditions are met, refresh the draft prompt against the current server, then show me the refreshed prompt before Codex runs it."

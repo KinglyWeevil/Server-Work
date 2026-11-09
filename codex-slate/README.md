@@ -9,6 +9,7 @@ Michael's picks from the Codex Sprint Slate (https://claude.ai/artifact/KfeM6X1e
 | 3 (tie) | Vault Inbox Filer | Ready | Plan, approve, file (obs moves stay guarded) |
 | 3 (tie) | Concierge Mailbox | Ready | Design first, stop, then build |
 | 4 | DR and Security Review | Ready | DR drill (scratch only) + security review (report only) |
+| unranked | Media Library Audit | Ready | Read-only report: mismatches, dupes, subs, HEVC savings |
 | unranked | Ledger Pocket | Ready | Planning and deployment design only |
 | unranked | PRISM Visuals | Ready | Read-only recommendations for native scenes |
 | parked | Parked Ideas/* | Later | Draft prompts only |

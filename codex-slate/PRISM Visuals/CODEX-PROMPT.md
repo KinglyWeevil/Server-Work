@@ -1,4 +1,6 @@
-# Codex kickoff: PRISM, recommendations toward its own independent visualizer graphics
+# Codex kickoff: PRISM, recommendations toward its own independent visualizer graphics · Model: gpt-6-astra · Effort: xhigh
+
+> **Start Codex with:** model `gpt-6-astra`, reasoning effort `xhigh` (rendering and design judgment; read-only). Agents use the models in the roster below.
 
 ## Context
 PRISM is Michael's music visualizer project (Windows; desktop is the only source and git writer at `C:\Users\Michael\Ledger\projects\PRISM`). W05 ("musical states with restrained transitions") was reviewed and the time-base and loudness fixes are done. Michael's goal now: PRISM creates **independent visualizer graphics of its own**. He wants recommendations, not code.
@@ -25,6 +27,31 @@ PRISM is Michael's music visualizer project (Windows; desktop is the only source
 ## Acceptance
 - Michael can pick a rendering direction and the first native scene from the report's questions in one sitting.
 - The roadmap fits into the existing window plan, or says exactly what to change.
+
+## Agent work structure (use agents wherever the work splits cleanly)
+
+Codex's `multi_agent` feature is on by default (stable in codex-cli 0.164+). Use `spawn_agent`, `wait_agent`, `send_message` and `list_agents`. If they aren't available in your session, do the same tasks one after another and say so in `REPORT.md`.
+
+**How it runs:**
+1. **You are the lead.** You own the plan, every write to shared files and the final checks. Agents write only inside `work/<task_name>/` in this folder. You review and merge their output.
+2. **Brief every agent fully.** Agents don't share your context. Give each one a `task_name`, a self-contained brief (goal, inputs with paths, constraints from the Standing rules, output file, done-when), and the `model` and `reasoning_effort` from the roster below.
+3. **Run in waves.** Agents in the same wave run in parallel; wait for a whole wave before starting the next. Anything that touches ledger, a live service, or a file another agent writes runs **lead-only and sequential**.
+4. **One level deep.** Agents don't spawn their own agents unless the roster says so. This keeps cost and behavior predictable.
+5. **Agents return** a summary of five lines or fewer, plus their output paths and any open questions. Check each claim before you build on it, because an agent's report is input, not truth.
+6. **Independent review last.** A fresh reviewer agent checks the deliverables against the Acceptance list and writes `work/review/review.md`. You fix what it finds, or explain why not.
+7. **Record it.** `REPORT.md` lists each agent, its model and effort, what it produced and whether it was used.
+
+**Roster for this project** (lead: `gpt-6-astra` · `xhigh`)
+
+| Wave | task_name | Job | Model | Effort | Output |
+|---|---|---|---|---|---|
+| 1 | `code-map` | Map the renderer: graphics.js host, scenes.js, director outputs, the Butterchurn coupling, tests; cite file:line | gpt-6.1-terra | medium | `work/code-map/` |
+| 1 | `vault-history` | Summarize the PRISM vault decisions, the W05-W06 reviews and fixes, the rejection record and the window plan | gpt-6-luna | medium | `work/vault-history/` |
+| 1 | `technique-licenses` | Research feedback passes, physarum, curl-noise particles, Lenia and Spectre: published methods, WebGL2 feasibility, license of any reference code | gpt-6.1-sol | high | `work/technique-licenses/` |
+| 2 | `critic` | Test every recommendation in CLAUDE-INPUT.md against the code map: agree, refine or reject, with evidence | gpt-6-astra | high | `work/critic/` |
+| 3 | `review` | Independent review: are the questions decision-ready, and does the roadmap fit the window plan? | gpt-6.1-sol | high | `work/review/review.md` |
+
+The PRISM repo is read-only for every agent, and agents read only the desktop copy. Nobody runs builds or changes branches.
 
 ## Standing rules (apply to every step)
 

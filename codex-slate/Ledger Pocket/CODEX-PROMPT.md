@@ -1,4 +1,6 @@
-# Codex kickoff: Ledger Pocket, planning and deployment design (no app code yet)
+# Codex kickoff: Ledger Pocket, planning and deployment design (no app code yet) · Model: gpt-6-astra · Effort: high
+
+> **Start Codex with:** model `gpt-6-astra`, reasoning effort `high` (architecture and planning judgment). Agents use the models in the roster below.
 
 ## Context
 Michael wants an Android app, "Ledger Pocket", to manage his home server (ledger) and, later, other parts of his life. He asked for detailed planning and a deployment design before anything is built. Your job is the plan, not the app.
@@ -33,6 +35,32 @@ Michael wants an Android app, "Ledger Pocket", to manage his home server (ledger
 ## Acceptance
 - Michael can read `PLAN.md` + `OPEN-QUESTIONS.md` in ten minutes and make every decision needed to start Phase 0.
 - Each network option lists exact setup steps and the undo.
+
+## Agent work structure (use agents wherever the work splits cleanly)
+
+Codex's `multi_agent` feature is on by default (stable in codex-cli 0.164+). Use `spawn_agent`, `wait_agent`, `send_message` and `list_agents`. If they aren't available in your session, do the same tasks one after another and say so in `REPORT.md`.
+
+**How it runs:**
+1. **You are the lead.** You own the plan, every write to shared files and the final checks. Agents write only inside `work/<task_name>/` in this folder. You review and merge their output.
+2. **Brief every agent fully.** Agents don't share your context. Give each one a `task_name`, a self-contained brief (goal, inputs with paths, constraints from the Standing rules, output file, done-when), and the `model` and `reasoning_effort` from the roster below.
+3. **Run in waves.** Agents in the same wave run in parallel; wait for a whole wave before starting the next. Anything that touches ledger, a live service, or a file another agent writes runs **lead-only and sequential**.
+4. **One level deep.** Agents don't spawn their own agents unless the roster says so. This keeps cost and behavior predictable.
+5. **Agents return** a summary of five lines or fewer, plus their output paths and any open questions. Check each claim before you build on it, because an agent's report is input, not truth.
+6. **Independent review last.** A fresh reviewer agent checks the deliverables against the Acceptance list and writes `work/review/review.md`. You fix what it finds, or explain why not.
+7. **Record it.** `REPORT.md` lists each agent, its model and effort, what it produced and whether it was used.
+
+**Roster for this project** (lead: `gpt-6-astra` · `high`)
+
+| Wave | task_name | Job | Model | Effort | Output |
+|---|---|---|---|---|---|
+| 1 | `api-inventory` | Per-service API endpoints, auth, read/write calls and versions (official docs first) | gpt-6.1-sol | medium | `work/api-inventory/` |
+| 1 | `network-auth` | Compare the four network/auth paths with exact setup steps and undo | gpt-6.1-sol | high | `work/network-auth/` |
+| 1 | `deployment` | Distribution, signing, CI and update options with costs | gpt-6.1-sol | medium | `work/deployment/` |
+| 2 | `threat-model` | Threat model and 5-minute kill switch, built on the wave-1 outputs | gpt-6-astra | high | `work/threat-model/` |
+| 2 | `features-roadmap` | FEATURES.md ranking and ROADMAP.md phases with effort | gpt-6.1-sol | medium | `work/features-roadmap/` |
+| 3 | `review` | Check that PLAN.md + OPEN-QUESTIONS.md are enough for Michael to decide Phase 0 in ten minutes | gpt-6-astra | high | `work/review/review.md` |
+
+The lead writes PLAN.md, ARCHITECTURE.md and OPEN-QUESTIONS.md, and resolves conflicts between agents.
 
 ## Standing rules (apply to every step)
 

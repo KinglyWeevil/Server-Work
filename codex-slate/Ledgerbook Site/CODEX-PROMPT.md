@@ -1,4 +1,6 @@
-# Codex kickoff: Ledgerbook public site + privacy policy
+# Codex kickoff: Ledgerbook public site + privacy policy · Model: gpt-6.1-sol · Effort: high
+
+> **Start Codex with:** model `gpt-6.1-sol`, reasoning effort `high` (Pages site + Function: mostly integration work with a careful writing piece). Agents use the models in the roster below.
 
 ## Context
 Ledgerbook is Michael's private home-server service (ledger, a Dell T330 running Unraid in Santa Fe, NM). Friends and family get media, books, notes and a few other apps through Cloudflare Access sign-in. Right now there is no public page: `ledgerbook.vip` goes straight to the signed-in portal. Michael wants a public front page and a privacy policy, built for reuse so a second brand (Science-Man.com) can follow later.
@@ -69,6 +71,33 @@ Also list the Authentik follow-up: put the homepage and `/privacy` URLs into the
 - Function tests pass; no secret values anywhere in the folder.
 - The privacy policy names every data path in the Facts section and links every processor's policy.
 - `DEPLOY.md` can be followed by someone who has never used Pages.
+
+## Agent work structure (use agents wherever the work splits cleanly)
+
+Codex's `multi_agent` feature is on by default (stable in codex-cli 0.164+). Use `spawn_agent`, `wait_agent`, `send_message` and `list_agents`. If they aren't available in your session, do the same tasks one after another and say so in `REPORT.md`.
+
+**How it runs:**
+1. **You are the lead.** You own the plan, every write to shared files and the final checks. Agents write only inside `work/<task_name>/` in this folder. You review and merge their output.
+2. **Brief every agent fully.** Agents don't share your context. Give each one a `task_name`, a self-contained brief (goal, inputs with paths, constraints from the Standing rules, output file, done-when), and the `model` and `reasoning_effort` from the roster below.
+3. **Run in waves.** Agents in the same wave run in parallel; wait for a whole wave before starting the next. Anything that touches ledger, a live service, or a file another agent writes runs **lead-only and sequential**.
+4. **One level deep.** Agents don't spawn their own agents unless the roster says so. This keeps cost and behavior predictable.
+5. **Agents return** a summary of five lines or fewer, plus their output paths and any open questions. Check each claim before you build on it, because an agent's report is input, not truth.
+6. **Independent review last.** A fresh reviewer agent checks the deliverables against the Acceptance list and writes `work/review/review.md`. You fix what it finds, or explain why not.
+7. **Record it.** `REPORT.md` lists each agent, its model and effort, what it produced and whether it was used.
+
+**Roster for this project** (lead: `gpt-6.1-sol` · `high`)
+
+| Wave | task_name | Job | Model | Effort | Output |
+|---|---|---|---|---|---|
+| 1 | `brand-extract` | Unzip and read the Argon website-theme and asset-kit packages; extract color, type and spacing tokens and the logo files | gpt-6-luna | medium | `work/brand-extract/tokens.json`, notes |
+| 1 | `data-inventory` | From HOW-LEDGER-WORKS.md, list every path where personal data is collected, stored, backed up or shared, with source lines | gpt-6.1-sol | medium | `work/data-inventory/inventory.md` |
+| 1 | `turnstile-function` | Pages Function + tests for request-access (Turnstile verify, validation, rate limit, service-token forward), mocked fetch | gpt-6.1-terra | medium | `work/turnstile-function/` |
+| 2 | `privacy-draft` | Write the privacy policy from the inventory, plain English, `[CHECK]` on every uncertain line, processor links | gpt-6-astra | high | `work/privacy-draft/privacy.md` |
+| 2 | `n8n-workflow` | Importable n8n request-access workflow JSON with placeholder credentials | gpt-6-luna | medium | `work/n8n-workflow/request-access.json` |
+| 3 | `a11y-check` | Build both brands, then run the accessibility, size, contrast and screenshot checks at 360/1440 px, light and dark | gpt-6-luna | medium | `work/a11y-check/` |
+| 3 | `review` | Independent review against Acceptance; check that DEPLOY.md can be followed cold | gpt-6-astra | high | `work/review/review.md` |
+
+The lead builds templates, `build.mjs` and `DEPLOY.md` itself, between waves 1 and 3.
 
 ## Standing rules (apply to every step)
 

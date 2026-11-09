@@ -1,4 +1,6 @@
-# Codex kickoff: Garage templates (templates first, no full build)
+# Codex kickoff: Garage templates (templates first, no full build) · Model: gpt-6.1-sol · Effort: medium
+
+> **Start Codex with:** model `gpt-6.1-sol`, reasoning effort `medium` (templates and forms: clear, mostly mechanical work). Agents use the models in the roster below.
 
 ## Context
 Michael keeps vehicle notes in an Obsidian vault (Obsidian 1.14 desktop and phone, synced by Syncthing; core Templates plugin; check whether Templater is installed and don't depend on it unless it is). Two vehicles today:
@@ -55,6 +57,31 @@ Michael wants **templates first**: record-keeping and diagnostic forms he can st
 - The Bases views list the examples correctly by vehicle.
 - Printed forms fit on one page each and match the template fields.
 - A new vehicle can be added without changing any template.
+
+## Agent work structure (use agents wherever the work splits cleanly)
+
+Codex's `multi_agent` feature is on by default (stable in codex-cli 0.164+). Use `spawn_agent`, `wait_agent`, `send_message` and `list_agents`. If they aren't available in your session, do the same tasks one after another and say so in `REPORT.md`.
+
+**How it runs:**
+1. **You are the lead.** You own the plan, every write to shared files and the final checks. Agents write only inside `work/<task_name>/` in this folder. You review and merge their output.
+2. **Brief every agent fully.** Agents don't share your context. Give each one a `task_name`, a self-contained brief (goal, inputs with paths, constraints from the Standing rules, output file, done-when), and the `model` and `reasoning_effort` from the roster below.
+3. **Run in waves.** Agents in the same wave run in parallel; wait for a whole wave before starting the next. Anything that touches ledger, a live service, or a file another agent writes runs **lead-only and sequential**.
+4. **One level deep.** Agents don't spawn their own agents unless the roster says so. This keeps cost and behavior predictable.
+5. **Agents return** a summary of five lines or fewer, plus their output paths and any open questions. Check each claim before you build on it, because an agent's report is input, not truth.
+6. **Independent review last.** A fresh reviewer agent checks the deliverables against the Acceptance list and writes `work/review/review.md`. You fix what it finds, or explain why not.
+7. **Record it.** `REPORT.md` lists each agent, its model and effort, what it produced and whether it was used.
+
+**Roster for this project** (lead: `gpt-6.1-sol` · `medium`)
+
+| Wave | task_name | Job | Model | Effort | Output |
+|---|---|---|---|---|---|
+| 1 | `vault-conventions` | Read _System/Templates, Assistant Rules and the Garage/YJ notes; report the property conventions and whether Templater, Bases and Dataview are present | gpt-6-luna | low | `work/vault-conventions/conventions.md` |
+| 2 | `md-templates` | Vehicle, diagnostic, service, parts, fuel and custom-entry templates plus HOW-TO-CUSTOM-ENTRIES.md | gpt-6-luna | medium | `work/md-templates/` |
+| 2 | `print-forms` | Printable HTML + PDF diagnostic worksheet, service record and codes sheet, with fields identical to the templates | gpt-6-luna | medium | `work/print-forms/` |
+| 3 | `views-examples` | Garage.base views and one fictional example per template | gpt-6-luna | medium | `work/views-examples/` |
+| 3 | `review` | Check that template fields match the forms, that the YAML is valid, and that adding a new vehicle needs no template change | gpt-6.1-sol | high | `work/review/review.md` |
+
+Wave 2 starts only after the lead fixes the shared property list from wave 1, so both wave-2 agents use the same field names.
 
 ## Standing rules (apply to every step)
 

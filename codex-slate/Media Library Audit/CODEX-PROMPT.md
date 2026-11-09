@@ -1,4 +1,6 @@
-# Codex kickoff: media library auditor (read-only)
+# Codex kickoff: media library auditor (read-only) · Model: gpt-6.1-sol · Effort: medium
+
+> **Start Codex with:** model `gpt-6.1-sol`, reasoning effort `medium` (straightforward read-only scripting). Agents use the models in the roster below.
 
 ## Context
 Michael's media stack on ledger: Radarr, Sonarr, Bazarr, Lidarr, Plex, qBittorrent behind gluetun, and Tdarr for HEVC conversion using the desktop's RTX 4090. He wants a report he can act on, not automatic changes.
@@ -35,6 +37,28 @@ Michael's media stack on ledger: Radarr, Sonarr, Bazarr, Lidarr, Plex, qBittorre
 - Tests pass; the GET-only guard is tested.
 - The report's counts match a manual spot-check of 5 items per section.
 - No secrets anywhere in the folder.
+
+## Agent work structure (use agents wherever the work splits cleanly)
+
+Codex's `multi_agent` feature is on by default (stable in codex-cli 0.164+). Use `spawn_agent`, `wait_agent`, `send_message` and `list_agents`. If they aren't available in your session, do the same tasks one after another and say so in `REPORT.md`.
+
+**How it runs:**
+1. **You are the lead.** You own the plan, every write to shared files and the final checks. Agents write only inside `work/<task_name>/` in this folder. You review and merge their output.
+2. **Brief every agent fully.** Agents don't share your context. Give each one a `task_name`, a self-contained brief (goal, inputs with paths, constraints from the Standing rules, output file, done-when), and the `model` and `reasoning_effort` from the roster below.
+3. **Run in waves.** Agents in the same wave run in parallel; wait for a whole wave before starting the next. Anything that touches ledger, a live service, or a file another agent writes runs **lead-only and sequential**.
+4. **One level deep.** Agents don't spawn their own agents unless the roster says so. This keeps cost and behavior predictable.
+5. **Agents return** a summary of five lines or fewer, plus their output paths and any open questions. Check each claim before you build on it, because an agent's report is input, not truth.
+6. **Independent review last.** A fresh reviewer agent checks the deliverables against the Acceptance list and writes `work/review/review.md`. You fix what it finds, or explain why not.
+7. **Record it.** `REPORT.md` lists each agent, its model and effort, what it produced and whether it was used.
+
+**Roster for this project** (lead: `gpt-6.1-sol` · `medium`)
+
+| Wave | task_name | Job | Model | Effort | Output |
+|---|---|---|---|---|---|
+| 1 | `api-clients` | GET-only clients for Radarr, Sonarr, Bazarr, Plex and qBittorrent, with fixture JSON and a GET-only guard test | gpt-6.1-terra | medium | `work/api-clients/` |
+| 1 | `rules-context` | Read the Recyclarr profiles, the Tdarr seeding-quarantine report and the media decisions; list the thresholds the report should use | gpt-6-luna | low | `work/rules-context/` |
+| 2 | `sections` | Implement the 8 report sections on top of the clients, with tests | gpt-6.1-terra | medium | `work/sections/` |
+| 3 | `review` | Spot-check 5 items per section against fixtures; confirm no secrets and no non-GET calls | gpt-6.1-sol | high | `work/review/review.md` |
 
 ## Standing rules (apply to every step)
 

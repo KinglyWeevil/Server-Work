@@ -1,4 +1,6 @@
-# Codex kickoff: concierge@ mailbox assistant (n8n, approval before send)
+# Codex kickoff: concierge@ mailbox assistant (n8n, approval before send) · Model: gpt-6-astra · Effort: high
+
+> **Start Codex with:** model `gpt-6-astra`, reasoning effort `high` (security-sensitive design; switch the lead to gpt-6.1-sol high for the Phase 2 build). Agents use the models in the roster below.
 
 ## Context
 Michael runs n8n 2.45.6 on ledger (LAN-only, `192.168.1.100:5678`, SQLite, no Docker socket or SSH access by design). Mail for `ledgerbook.vip` is hosted by Proton. He wants `concierge@ledgerbook.vip` to have an assistant: incoming mail is classified, a reply is drafted by an LLM, Michael gets a notification and approves, edits or rejects, and only an approved reply is sent.
@@ -30,6 +32,33 @@ Cover each item with a recommendation and the alternatives you rejected:
 - `DESIGN.md` approved by Michael before any build work.
 - Mock test passes: 10/10 fixtures processed, 0 sends without approval, both injection fixtures flagged and drafts unaffected by their instructions.
 - Workflow JSON imports into a clean n8n 2.45.x without errors.
+
+## Agent work structure (use agents wherever the work splits cleanly)
+
+Codex's `multi_agent` feature is on by default (stable in codex-cli 0.164+). Use `spawn_agent`, `wait_agent`, `send_message` and `list_agents`. If they aren't available in your session, do the same tasks one after another and say so in `REPORT.md`.
+
+**How it runs:**
+1. **You are the lead.** You own the plan, every write to shared files and the final checks. Agents write only inside `work/<task_name>/` in this folder. You review and merge their output.
+2. **Brief every agent fully.** Agents don't share your context. Give each one a `task_name`, a self-contained brief (goal, inputs with paths, constraints from the Standing rules, output file, done-when), and the `model` and `reasoning_effort` from the roster below.
+3. **Run in waves.** Agents in the same wave run in parallel; wait for a whole wave before starting the next. Anything that touches ledger, a live service, or a file another agent writes runs **lead-only and sequential**.
+4. **One level deep.** Agents don't spawn their own agents unless the roster says so. This keeps cost and behavior predictable.
+5. **Agents return** a summary of five lines or fewer, plus their output paths and any open questions. Check each claim before you build on it, because an agent's report is input, not truth.
+6. **Independent review last.** A fresh reviewer agent checks the deliverables against the Acceptance list and writes `work/review/review.md`. You fix what it finds, or explain why not.
+7. **Record it.** `REPORT.md` lists each agent, its model and effort, what it produced and whether it was used.
+
+**Roster for this project** (lead: `gpt-6-astra` · `high`)
+
+| Wave | task_name | Job | Model | Effort | Output |
+|---|---|---|---|---|---|
+| 1 (design) | `bridge-options` | Compare the official Bridge CLI with community container images: maintenance, version pinning, licensing, headless sign-in, and the paid-plan requirement | gpt-6.1-sol | medium | `work/bridge-options/` |
+| 1 (design) | `approval-channel` | Compare the approval channels; draft the Access-protected n8n form/resume design | gpt-6.1-sol | medium | `work/approval-channel/` |
+| 1 (design) | `llm-cost` | Provider options and monthly cost at 50 and 500 mails; LM Studio fallback | gpt-6-luna | medium | `work/llm-cost/` |
+| 1 (design) | `injection-redteam` | Threat-model the mail-to-LLM path and write 10 attack fixtures (hidden text, HTML tricks, instructions to forward or send) | gpt-6-astra | high | `work/injection-redteam/` |
+| 2 (build) | `workflow-build` | n8n workflows from the approved design, placeholder credentials | gpt-6.1-terra | high | `work/workflow-build/` |
+| 2 (build) | `mock-mail-test` | Scratch Mailpit/GreenMail test harness and fixture run (no published ports) | gpt-6.1-sol | medium | `work/mock-mail-test/` |
+| 3 | `review` | Independent security review: zero sends without approval, injections flagged | gpt-6-astra | xhigh | `work/review/review.md` |
+
+The design-phase agents run, then the lead writes DESIGN.md and **stops for Michael**. The build agents start only after his OK.
 
 ## Standing rules (apply to every step)
 

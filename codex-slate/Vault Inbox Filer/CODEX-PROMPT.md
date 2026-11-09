@@ -1,4 +1,6 @@
-# Codex kickoff: Vault Inbox filer (plan, approve, then file)
+# Codex kickoff: Vault Inbox filer (plan, approve, then file) · Model: gpt-6.1-sol · Effort: high
+
+> **Start Codex with:** model `gpt-6.1-sol`, reasoning effort `high` (safety-critical file moves; correctness over speed). Agents use the models in the roster below.
 
 ## Context
 Michael's Obsidian vault (`/mnt/user/data/notes/vault` on ledger, git-tracked, Syncthing to PCs and phone) has an `Inbox/` where chats and quick notes land, often as "Vault entry" blocks (project, thread, date, status, Summary, Decisions, Actions, Open items). Each project has `Projects/<P>/{README.md, Status.md, Decisions.md, Log/, Threads/, Files/}`. The rules are in `_System/Assistant Rules.md`.
@@ -44,6 +46,31 @@ Run on **clerk-codex** (`/workspace/...`), which has the `obs` wrapper. `obs` al
 ## Acceptance
 - On the real vault, `plan` writes one plan note and changes nothing else.
 - All fixture tests pass; `apply` never touches an unticked row; no `--approved` call happens outside `apply`.
+
+## Agent work structure (use agents wherever the work splits cleanly)
+
+Codex's `multi_agent` feature is on by default (stable in codex-cli 0.164+). Use `spawn_agent`, `wait_agent`, `send_message` and `list_agents`. If they aren't available in your session, do the same tasks one after another and say so in `REPORT.md`.
+
+**How it runs:**
+1. **You are the lead.** You own the plan, every write to shared files and the final checks. Agents write only inside `work/<task_name>/` in this folder. You review and merge their output.
+2. **Brief every agent fully.** Agents don't share your context. Give each one a `task_name`, a self-contained brief (goal, inputs with paths, constraints from the Standing rules, output file, done-when), and the `model` and `reasoning_effort` from the roster below.
+3. **Run in waves.** Agents in the same wave run in parallel; wait for a whole wave before starting the next. Anything that touches ledger, a live service, or a file another agent writes runs **lead-only and sequential**.
+4. **One level deep.** Agents don't spawn their own agents unless the roster says so. This keeps cost and behavior predictable.
+5. **Agents return** a summary of five lines or fewer, plus their output paths and any open questions. Check each claim before you build on it, because an agent's report is input, not truth.
+6. **Independent review last.** A fresh reviewer agent checks the deliverables against the Acceptance list and writes `work/review/review.md`. You fix what it finds, or explain why not.
+7. **Record it.** `REPORT.md` lists each agent, its model and effort, what it produced and whether it was used.
+
+**Roster for this project** (lead: `gpt-6.1-sol` · `high`)
+
+| Wave | task_name | Job | Model | Effort | Output |
+|---|---|---|---|---|---|
+| 1 | `rules-spec` | Turn _System/Assistant Rules.md + 5 sample Inbox notes into RULES.md decision rules | gpt-6.1-sol | medium | `work/rules-spec/RULES.md` |
+| 1 | `obs-contract` | Read the obs wrapper and guard; document exact calls, exit codes and what `--approved` permits | gpt-6-luna | medium | `work/obs-contract/obs.md` |
+| 1 | `fixture-vault` | Build the fixture vault and the test cases (clear, split, uncertain, clash, changed-since-plan, unticked) | gpt-6.1-terra | medium | `work/fixture-vault/` |
+| 2 | `adversary` | Try to make `apply` act on an unticked row, a changed note or a wrong path; write failing tests for anything it finds | gpt-6-astra | high | `work/adversary/` |
+| 3 | `review` | Independent review against Acceptance | gpt-6.1-sol | high | `work/review/review.md` |
+
+The lead writes `filer` itself. Only the lead runs it against the real vault, and only `plan`.
 
 ## Standing rules (apply to every step)
 

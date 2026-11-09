@@ -1,4 +1,6 @@
-# Codex kickoff: ledger disaster-recovery drill + security review (combined)
+# Codex kickoff: ledger disaster-recovery drill + security review (combined) · Model: gpt-6.1-sol · Effort: xhigh
+
+> **Start Codex with:** model `gpt-6.1-sol`, reasoning effort `xhigh` (touches the live server, so the lead runs every ledger command itself). Agents use the models in the roster below.
 
 ## Context
 ledger is Michael's home server (Dell T330, Unraid 7.3.4, 192.168.1.100). Docker Compose stacks live in `/mnt/user/appdata/stacks` (git repo `KinglyWeevil/ledger-stacks`); `/boot/config` is backed up to `KinglyWeevil/ledger-config`. Run this from **Codex on Michael's desktop** using `ssh ledger "<command>"` (key auth as root). Every command you run on ledger is shown before you run it.
@@ -40,6 +42,32 @@ Check and rank:
 - Every drill item has a measured time and a pass/fail with evidence, or a clear reason it couldn't run.
 - No live container, config or share changed (show `git status` of the stacks repo before and after, and `docker ps` before and after).
 - Each security finding cites where you saw it (file, command output, or advisory link).
+
+## Agent work structure (use agents wherever the work splits cleanly)
+
+Codex's `multi_agent` feature is on by default (stable in codex-cli 0.164+). Use `spawn_agent`, `wait_agent`, `send_message` and `list_agents`. If they aren't available in your session, do the same tasks one after another and say so in `REPORT.md`.
+
+**How it runs:**
+1. **You are the lead.** You own the plan, every write to shared files and the final checks. Agents write only inside `work/<task_name>/` in this folder. You review and merge their output.
+2. **Brief every agent fully.** Agents don't share your context. Give each one a `task_name`, a self-contained brief (goal, inputs with paths, constraints from the Standing rules, output file, done-when), and the `model` and `reasoning_effort` from the roster below.
+3. **Run in waves.** Agents in the same wave run in parallel; wait for a whole wave before starting the next. Anything that touches ledger, a live service, or a file another agent writes runs **lead-only and sequential**.
+4. **One level deep.** Agents don't spawn their own agents unless the roster says so. This keeps cost and behavior predictable.
+5. **Agents return** a summary of five lines or fewer, plus their output paths and any open questions. Check each claim before you build on it, because an agent's report is input, not truth.
+6. **Independent review last.** A fresh reviewer agent checks the deliverables against the Acceptance list and writes `work/review/review.md`. You fix what it finds, or explain why not.
+7. **Record it.** `REPORT.md` lists each agent, its model and effort, what it produced and whether it was used.
+
+**Roster for this project** (lead: `gpt-6.1-sol` · `xhigh`)
+
+| Wave | task_name | Job | Model | Effort | Output |
+|---|---|---|---|---|---|
+| 1 | `cve-research` | For each pinned image version in the stacks, find advisories (GHSA, vendor, NVD) with links; no ledger access | gpt-6.1-sol | medium | `work/cve-research/cves.md` |
+| 1 | `config-review` | Read the stacks repo (compose files, scripts, cron, edge audit JSON) for exposure, mounts, privileges, the clerk-to-root path and .env handling; repo files only | gpt-6.1-sol | high | `work/config-review/findings.md` |
+| 1 | `secrets-scan` | Run gitleaks on both repos' history from a local clone; report finding types and locations, never values | gpt-6-luna | medium | `work/secrets-scan/` |
+| — (lead) | `drill` | DR drill items 1-7, run sequentially on ledger by the lead only, inside the scratch dir | (lead) | (lead) | `DR-DRILL.md` |
+| 2 | `redteam` | Read the drill results and findings; argue what an attacker or a disk failure would actually exploit first; re-rank | gpt-6-astra | high | `work/redteam/` |
+| 3 | `review` | Independent review: every finding cited, no live change made (compare the before/after git status and docker ps) | gpt-6-astra | high | `work/review/review.md` |
+
+**No agent gets SSH or runs commands on ledger.** Agents work from repo clones, files the lead copied into `work/`, and the web.
 
 ## Standing rules (apply to every step)
 
